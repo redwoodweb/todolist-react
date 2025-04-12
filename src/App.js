@@ -37,7 +37,13 @@ if(!data) return <p>데이터가 없습니다!!</p>
         <li>{data.id}</li>
         <li>{data.pw}</li>
       </ul>
-      <input value={inputName} onChange={(e) => setInputName(e.target.value)}></input>
+      <input value={inputName} onChange={(e) => setInputName(e.target.value)}
+      onKeyUp={(e) => {
+        if (e.key === 'Enter') {
+          handlerSubmit(); // ✅ 엔터키로 submit 실행
+        }
+      }}
+      ></input>
       <button ref={submit} onClick={handlerSubmit}>submit</button>
       <Footer/>   
     </div>
